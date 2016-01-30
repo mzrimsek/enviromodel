@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.set('json spaces', 2);
 
-app.use(express.static(path.resolve("./")));
+app.use(express.static(path.resolve("./dist")));
 
 app.get('/', function(req, res){
   res.sendFile('index.html');
