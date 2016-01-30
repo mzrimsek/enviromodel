@@ -1,0 +1,19 @@
+{
+  "name": "talk-iojs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Mike Zrimsek",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "lowdb": "^0.10.2",
+    "validate": "^2.1.6"
+  }
+}
