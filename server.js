@@ -22,3 +22,4 @@ app.get('/api/companies/:name', companies.find);
 app.delete('/api/companies/:name', companies.delete);
 
 app.listen(8000);
+exports = module.exports = app;
