@@ -1,19 +1,48 @@
 {
   "companies": [
     {
-      "name": "Microsoft"
+      "name": "Microsoft",
+      "company_logo": "image.png",
+      "design": 10,
+      "raw_materials": 10,
+      "production": 10,
+      "distribution": 10,
+      "corporate_ethics": 10,
+      "transparency": 10,
+      "outreach": 10
     },
     {
-      "name": "Amazon"
+      "name": "Amazon",
+      "company_logo": "image.png",
+      "design": 20,
+      "raw_materials": 20,
+      "production": 20,
+      "distribution": 20,
+      "corporate_ethics": 20,
+      "transparency": 20,
+      "outreach": 20
     },
     {
-      "name": "Facebook"
+      "name": "Facebook",
+      "company_logo": "image.png",
+      "design": 30,
+      "raw_materials": 30,
+      "production": 30,
+      "distribution": 30,
+      "corporate_ethics": 30,
+      "transparency": 30,
+      "outreach": 30
     },
     {
-      "name": "Google"
-    },
-    {
-      "name": "Apple"
+      "name": "Google",
+      "company_logo": "image.png",
+      "design": 40,
+      "raw_materials": 40,
+      "production": 40,
+      "distribution": 40,
+      "corporate_ethics": 40,
+      "transparency": 40,
+      "outreach": 40
     }
   ]
 }

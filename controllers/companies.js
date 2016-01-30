@@ -40,6 +40,41 @@ function validate(company) {
       type: 'string',
       required: true,
       message: 'Name is required'
+    },
+    design: {
+      type: 'number',
+      required: true,
+      message: 'Design is required'
+    },
+    raw_materials: {
+      type: 'number',
+      required: true,
+      message: 'Raw Materials is required'
+    },
+    production: {
+      type: 'number',
+      required: true,
+      message: 'Production is required'
+    },
+    distribution: {
+      type: 'number',
+      required: true,
+      message: 'Distribution is required'
+    },
+    corporate_ethics: {
+      type: 'number',
+      required: true,
+      message: 'Corporate Ethics is required'
+    },
+    transparency: {
+      type: 'number',
+      required: true,
+      message: 'Transparency is required'
+    },
+    outreach: {
+      type: 'number',
+      required: true,
+      message: 'Outreach is required'
     }
   });
 
