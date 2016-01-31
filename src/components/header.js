@@ -11,7 +11,6 @@ export default class Header extends Component{
             <Link className="navbar-brand" to="/">
               <img className="img-responsive" src="public/img/logo.png"/>
             </Link>
-            <h2>Enviromodel</h2>
           </div>
         </div>
       </div>

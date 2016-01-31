@@ -4,6 +4,9 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+body{
+  background:#e6e7e8 !important;
+}
 .left {
   float: left;
 }
@@ -14,4 +17,10 @@ html {
   content: "";
   display: table;
   clear: both;
+}
+.company-link{
+  margin-top:5px;
+  margin-bottom:5px;
+  padding-right:7px !important;
+  padding-left:7px !important;
 }
