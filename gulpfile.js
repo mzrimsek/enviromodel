@@ -1,83 +1,85 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var jade = require('gulp-jade');
 var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('gulp-cssnano');
-var uglify = require('gulp-uglify');
-var source = require('vinyl-source-stream');
-var streamify = require('gulp-streamify');
-var browserify = require('browserify');
-var babelify = require('babelify');
-var watchify = require('watchify');
-var reactify = require('reactify');
 var serve = require('gulp-serve');
 
-function buildScript(watch) {
-  var props = {
-    entries: ["./app/app.jsx"],
-    debug: true,
-    transform: [babelify, reactify],
-    cache: {},
-    packageCache: {}
-  };
-  var bundler = watch ? watchify(browserify(props)) : browserify(props);
+var gulpWatchList = ['templates/*jade', 'templates/**/*.jade', 'css/*.scss', 'css/partials/*.scss', 'js/*.js', 'js/**/*.js'];
 
-  function rebundle() {
-    var stream = bundler.bundle();
-    return stream.on('error', gutil.log.bind(gutil, 'Browserify Error'))
-      .pipe(source("bundle.js"))
-      .pipe(streamify(uglify()))
-      .pipe(gulp.dest("dist/js"));
-  }
-  bundler.on('update', () => {
-    rebundle();
-    gutil.log('Rebundle...');
-  });
-  return rebundle();
-}
-
-gulp.task('jade', () => {
-  return gulp.src('public/templates/*.jade')
+gulp.task('templates', function() {
+  return gulp.src('templates/*.jade')
     .pipe(jade())
-    .on('error', gutil.log.bind(gutil, 'Jade Error'))
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('sass', () => {
-  var processors = [autoprefixer, cssnano];
-  return gulp.src('public/scss/*.scss')
+gulp.task('styles', function() {
+  var processors = [
+    autoprefixer,
+    cssnano
+  ];
+  return gulp.src('css/*.scss')
     .pipe(sass())
-    .on('error', gutil.log.bind(gutil, 'Sass Error'))
     .pipe(postcss(processors))
-    .pipe(gulp.dest("dist/css"));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('images', function() {
-  return gulp.src('public/images/*.*')
+  return gulp.src('img/*.*')
     .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('app', () => {
-  buildScript(false);
+gulp.task('main', function() {
+  return gulp.src('js/*.js')
+  .pipe(uglify())
+  .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('watch-app', () => {
-  buildScript(true);
+gulp.task('controllers', function() {
+  return gulp.src('js/controllers/*.js')
+  .pipe(uglify())
+  .pipe(gulp.dest('dist/js/controllers'));
 });
 
-gulp.task('public', ['jade', 'sass', 'images']);
-
-gulp.task('watch-public', () => {
-  gulp.watch(['public/scss/*.scss', 'public/templates/*.jade'], ['public']);
+gulp.task('directives-js', function() {
+  return gulp.src('js/directives/*.js')
+  .pipe(uglify())
+  .pipe(gulp.dest('dist/js/directives'));
 });
 
-gulp.task('build', ['public', 'app']);
+gulp.task('directives-jade', function() {
+  return gulp.src('templates/directives/*.jade')
+  .pipe(jade())
+  .pipe(gulp.dest('dist/js/directives'));
+});
 
-gulp.task('watch', ['watch-public', 'watch-app']);
+gulp.task('views', function() {
+  return gulp.src('templates/views/*.jade')
+  .pipe(jade())
+  .pipe(gulp.dest('dist/js/views'));
+});
 
-gulp.task('serve', ['watch'], serve({
+gulp.task('static', ['templates', 'styles', 'images']);
+
+gulp.task('directives', ['directives-js', 'directives-jade']);
+
+gulp.task('app', ['main', 'controllers', 'directives', 'views']);
+
+gulp.task('build', ['static', 'app']);
+
+gulp.task('default', ['build'], function() {
+  gulp.watch(
+    gulpWatchList, ['build']
+  );
+});
+
+gulp.task('watch', function() {
+  gulp.watch(gulpWatchList, ['build']);
+});
+
+gulp.task('serve', ['build', 'watch'], serve({
   root: ['dist'],
   port: 3000
 }));

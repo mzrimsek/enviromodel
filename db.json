@@ -3,6 +3,7 @@
     {
       "name": "Microsoft",
       "company_logo": "image.png",
+      "category": "designer",
       "design": 10,
       "raw_materials": 10,
       "production": 10,
@@ -14,6 +15,7 @@
     {
       "name": "Amazon",
       "company_logo": "image.png",
+      "category": "bridge",
       "design": 20,
       "raw_materials": 20,
       "production": 20,
@@ -25,6 +27,7 @@
     {
       "name": "Facebook",
       "company_logo": "image.png",
+      "category": "better",
       "design": 30,
       "raw_materials": 30,
       "production": 30,
@@ -36,6 +39,31 @@
     {
       "name": "Google",
       "company_logo": "image.png",
+      "category": "contemporary",
+      "design": 40,
+      "raw_materials": 40,
+      "production": 40,
+      "distribution": 40,
+      "corporate_ethics": 40,
+      "transparency": 40,
+      "outreach": 40
+    },
+    {
+      "name": "Acer",
+      "company_logo": "image.png",
+      "category": "moderate",
+      "design": 40,
+      "raw_materials": 40,
+      "production": 40,
+      "distribution": 40,
+      "corporate_ethics": 40,
+      "transparency": 40,
+      "outreach": 40
+    },
+    {
+      "name": "Asus",
+      "company_logo": "image.png",
+      "category": "discount",
       "design": 40,
       "raw_materials": 40,
       "production": 40,

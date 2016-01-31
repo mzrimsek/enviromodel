@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+  head
+    include ./include/head.jade
+    
+  body(ng-app="Enviromodel")
+    
+    #wrapper
+      include ./include/nav.jade
+      
+      .main(ng-controller="MainController")
+        .container.categories-wrapper
+          .row
+            a.category.col-md-6.col-lg-6.col-sm-6(ng-repeat="category in categories" href="#/api/companies/{{category.name}}" )
+              img(ng-src="{{category.img}}")
+              
+    include ./include/script-includes.jade
+      

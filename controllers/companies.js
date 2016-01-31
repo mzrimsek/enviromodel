@@ -16,9 +16,16 @@ module.exports = {
     return res.json(companies);
   },
 
-  find: function(req, res) {
+  findByName: function(req, res) {
     var company = companies.find({
       name: req.params.name
+    });
+    return res.json(company);
+  },
+
+  findByCategory: function(req, res) {
+    var company = companies.find({
+      category: req.params.category
     });
     return res.json(company);
   },

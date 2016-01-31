@@ -18,7 +18,8 @@ app.get('/', function(req, res){
 });
 app.post('/api/companies', companies.create);
 app.get('/api/companies', companies.list);
-app.get('/api/companies/:name', companies.find);
+app.get('/api/companies/:name', companies.findByName);
+app.get('/api/companies/:category', companies.findByCategory);
 app.delete('/api/companies/:name', companies.delete);
 
 app.listen(8000);
