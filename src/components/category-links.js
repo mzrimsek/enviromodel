@@ -10,7 +10,7 @@ export default class CategoryLinks extends Component{
       <div className="category-links container">
         <div className="row">
           {CATEGORIES.map((category, idx) =>
-            <div key={category} className="company-link col-md-6 col-lg-6 col-sm-6">
+            <div key={category} className="company-link col-md-6 col-lg-6 col-sm-12">
               <Link to={`/${category}`}>
                 <img className="img-responsive" src={`public/img/categories/${category}.png`} />
               </Link>
