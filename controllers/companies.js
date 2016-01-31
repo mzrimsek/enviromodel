@@ -24,10 +24,10 @@ module.exports = {
   },
 
   findByCategory: function(req, res) {
-    var company = companies.find({
-      category: req.params.category
+    var companiesList = companies.filter(function(company){
+      return company.category === req.params.category;
     });
-    return res.json(company);
+    return res.json(companiesList);
   },
 
   delete: function(req, res) {

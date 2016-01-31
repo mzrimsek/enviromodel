@@ -11,16 +11,18 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.set('json spaces', 2);
 
-app.use(express.static(path.resolve("./dist")));
+app.use('/dist', express.static(path.resolve("./dist")));
+app.use('/img', express.static(path.resolve("./img")));
 
-app.get('/', function(req, res){
-  res.sendFile('index.html');
-});
+
 app.post('/api/companies', companies.create);
 app.get('/api/companies', companies.list);
 app.get('/api/companies/:name', companies.findByName);
-app.get('/api/companies/:category', companies.findByCategory);
+app.get('/api/companies/category/:category', companies.findByCategory);
 app.delete('/api/companies/:name', companies.delete);
+app.get('*', function(req, res){
+  res.sendFile(path.resolve(__dirname, 'index.html'));
+});
 
 app.listen(8000);
 exports = module.exports = app;
