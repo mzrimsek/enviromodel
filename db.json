@@ -74,7 +74,7 @@
     },
     {
       "name": "Hugo Boss",
-      "company_logo": "image.png",
+      "company_logo": "HugoBoss.png",
       "category": "better",
       "design": 9,
       "raw_materials": 9,
@@ -86,7 +86,7 @@
     },
     {
       "name": "United Colors of Benetton",
-      "company_logo": "image.png",
+      "company_logo": "UnitedCofB.png",
       "category": "contemporary",
       "design": 4,
       "raw_materials": 6,
