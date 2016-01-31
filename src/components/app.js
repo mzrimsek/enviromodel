@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import { RouteHandler } from 'react-router';
+import Header from 'components/header';
 
 export default class App extends Component{
   render(){
     return (
-      <RouteHandler></RouteHandler>
+      <div className="app">
+        <Header></Header>
+        <RouteHandler></RouteHandler>
+      </div>
+
     );
   }
 }

@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.set('json spaces', 2);
 
 app.use('/dist', express.static(path.resolve("./dist")));
-app.use('/img', express.static(path.resolve("./img")));
+app.use('/public', express.static(path.resolve("./public")));
 
 
 app.post('/api/companies', companies.create);
