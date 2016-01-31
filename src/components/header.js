@@ -5,7 +5,7 @@ export default class Header extends Component{
 
   render(){
     return (
-      <div className=" header navbar navbar-default">
+      <div className="header navbar navbar-default">
         <div className="container">
           <div className="navbar-header">
             <Link className="navbar-brand" to="/">
