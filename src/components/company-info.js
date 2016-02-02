@@ -17,6 +17,7 @@ export default class CompanyInfo extends Component{
   }
   renderDetail(){
     const {company} = this.props;
+    let average = (company.design + company.raw_materials + company.production + company.distribution + company.corporate_ethics + company.transparency + company.outreach)/7;
     return (
       <div className="info">
         <div className="design col-md-4 col-sm-6">
@@ -46,6 +47,10 @@ export default class CompanyInfo extends Component{
         <div className="outreach col-md-4 col-sm-6">
           <span>Outreach:</span>
           <span>{company.outreach}</span>
+        </div>
+        <div className="outreach col-md-4 col-sm-6">
+          <span>Rating:</span>
+          <span>{average.toFixed(1)}</span>
         </div>
       </div>
     )
