@@ -44,11 +44,11 @@ export default class CompanyInfo extends Component{
           <span>Transparency:</span>
           <span>{company.transparency}</span>
         </div>
-        <div className="outreach col-md-4 col-sm-6">
+        <div className="outreach col-md-12 col-sm-6">
           <span>Outreach:</span>
           <span>{company.outreach}</span>
         </div>
-        <div className="outreach col-md-4 col-sm-6">
+        <div className="rating col-md-12 col-sm-12">
           <span>Rating:</span>
           <span>{average.toFixed(1)}</span>
         </div>
