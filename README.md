@@ -5,3 +5,5 @@ An application to lend transparency to how sustainable a company's business prac
 * NodeJS
 * React
 * Webpack
+
+Built for the 2016 Kent State University Fashion/Tech Hackathon
